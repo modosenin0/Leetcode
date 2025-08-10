@@ -19,10 +19,10 @@ class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode l3 = new ListNode();
         ListNode pointer = l3;
-        Integer carry = 0;
+        int carry = 0;
         while (l1 != null || l2 != null) {
-            Integer num1;
-            Integer num2;
+            int num1;
+            int num2;
             
             if (l1 == null) {
                 num1 = 0;
@@ -35,23 +35,13 @@ class Solution {
                 num2 = l2.val;
             }
 
-            Integer result = num1 + num2 + carry;
-            carry = 0;
-
-            if(result >= 10){
-                carry = 1;
-            }
+            int result = num1 + num2 + carry;
+            carry = result / 10;
 
             pointer.val = result % 10;
 
-            if(l1 == null){
-                l2 = l2.next;
-            } else if (l2 == null){
-                l1 = l1.next;
-            }else{
-                l1 = l1.next;
-                l2 = l2.next;
-            }
+            if (l1 != null) l1 = l1.next;
+            if (l2 != null) l2 = l2.next;
 
             if (l1 == null && l2 == null) {
                 break;
