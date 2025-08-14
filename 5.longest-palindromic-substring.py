@@ -21,6 +21,8 @@ class Solution:
                 left +=1
             else:
                 right -=1
+
+        print("hola")
         
         return max(l)
 
